@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="webshop@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="webshop">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="lapusha"/>
+    <schema id="5" parent="1" name="mydatabase"/>
+    <schema id="6" parent="1" name="mydb"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="sakila"/>
+    <schema id="10" parent="1" name="scl"/>
+    <schema id="11" parent="1" name="sys"/>
+    <schema id="12" parent="1" name="teashop"/>
+    <schema id="13" parent="1" name="wh"/>
+    <schema id="14" parent="1" name="world"/>
+    <table id="15" parent="2" name="countries"/>
+    <table id="16" parent="2" name="orders"/>
+    <table id="17" parent="2" name="products"/>
+    <table id="18" parent="2" name="roles"/>
+    <table id="19" parent="2" name="sales"/>
+    <table id="20" parent="2" name="types"/>
+    <table id="21" parent="2" name="user_roles"/>
+    <table id="22" parent="2" name="users"/>
+    <column id="23" parent="15" name="idOfCountry">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="15" name="nameOfCountry">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="25" parent="15" name="nameOfCountry_UNIQUE">
+      <ColNames>nameOfCountry</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="26" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfCountry</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="27" parent="15" name="nameOfCountry_UNIQUE">
+      <ColNames>nameOfCountry</ColNames>
+      <UnderlyingIndexName>nameOfCountry_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="28" parent="16" name="idOfOrder">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="16" name="date">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="16" name="finalPrice">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="16" name="name">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="32" parent="16" name="surname">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="33" parent="16" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="34" parent="16" name="email">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="35" parent="16" name="status">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="16" name="idOfUser">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="37" parent="16" name="fk_orders_users_idx">
+      <ColNames>idOfUser</ColNames>
+    </index>
+    <key id="38" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfOrder</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="39" parent="16" name="fk_orders_users">
+      <ColNames>idOfUser</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>idOfUser</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="40" parent="17" name="idOfProduct">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="17" name="nameOfProduct">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="17" name="idOfType">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="43" parent="17" name="idOfCountry">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="44" parent="17" name="image">
+      <Position>5</Position>
+      <DataType>longblob|0</DataType>
+    </column>
+    <column id="45" parent="17" name="description">
+      <Position>6</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="46" parent="17" name="price">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="47" parent="17" name="fk_Tea_Country_idx">
+      <ColNames>idOfCountry</ColNames>
+    </index>
+    <index id="48" parent="17" name="fk_Tea_TypesOfTea_idx">
+      <ColNames>idOfType</ColNames>
+    </index>
+    <key id="49" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfProduct</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="50" parent="17" name="fk_teas_types">
+      <ColNames>idOfType</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>types</RefTableName>
+      <RefColNames>idOfType</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="51" parent="17" name="fk_teas_countries">
+      <ColNames>idOfCountry</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>countries</RefTableName>
+      <RefColNames>idOfCountry</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="52" parent="18" name="idOfRole">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="53" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="54" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfRole</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="19" name="idOfSale">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="19" name="idOfOrder">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="19" name="idOfProduct">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="19" name="amount">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="59" parent="19" name="fk_sales_orders_idx">
+      <ColNames>idOfOrder</ColNames>
+    </index>
+    <index id="60" parent="19" name="fk_sales_tea_idx">
+      <ColNames>idOfProduct</ColNames>
+    </index>
+    <key id="61" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfSale</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="62" parent="19" name="fk_sales_orders">
+      <ColNames>idOfOrder</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>orders</RefTableName>
+      <RefColNames>idOfOrder</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="63" parent="19" name="fk_sales_tea">
+      <ColNames>idOfProduct</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>products</RefTableName>
+      <RefColNames>idOfProduct</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="64" parent="20" name="idOfType">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="20" name="nameOfType">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="66" parent="20" name="nameOfType_UNIQUE">
+      <ColNames>nameOfType</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="67" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfType</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="68" parent="20" name="nameOfType_UNIQUE">
+      <ColNames>nameOfType</ColNames>
+      <UnderlyingIndexName>nameOfType_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="69" parent="21" name="idOfUser_roles">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="21" name="idOfUser">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="21" name="idOfRole">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="72" parent="21" name="fk_userRoles_roles_idx">
+      <ColNames>idOfRole</ColNames>
+    </index>
+    <index id="73" parent="21" name="fk_userRoles_users_idx">
+      <ColNames>idOfUser</ColNames>
+    </index>
+    <key id="74" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfUser_roles</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="21" name="fk_userRoles_users">
+      <ColNames>idOfUser</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>idOfUser</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="76" parent="21" name="fk_userRoles_roles">
+      <ColNames>idOfRole</ColNames>
+      <RefSchemaName>webshop</RefSchemaName>
+      <RefTableName>roles</RefTableName>
+      <RefColNames>idOfRole</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="77" parent="22" name="idOfUser">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="78" parent="22" name="username">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="22" name="password">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="22" name="name">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="22" name="surname">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="82" parent="22" name="email">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="83" parent="22" name="phone">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="84" parent="22" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idOfUser</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="86" parent="22" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username_UNIQUE</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
